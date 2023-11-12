@@ -7,6 +7,12 @@ const jwt =require("jsonwebtoken")
 const nodemailer = require('nodemailer');
 const path = require("path")
 
+const app= new Express()
+
+app.use(BodyParser.json())
+app.use(BodyParser.urlencoded({extended:true}))
+app.use(Cors())
+
 app.use(Express.static(path.join(__dirname, "./build")));
 app.get("*", function (_, res) {
   res.sendFile(
@@ -18,11 +24,7 @@ app.get("*", function (_, res) {
 });
 
 
-const app= new Express()
 
-app.use(BodyParser.json())
-app.use(BodyParser.urlencoded({extended:true}))
-app.use(Cors())
 
 Mongoose.connect("mongodb+srv://aatish:aatish@cluster0.euclaxo.mongodb.net/otpdb?retryWrites=true&w=majority", {useNewUrlParser: true,useUnifiedTopology: true,})
 
