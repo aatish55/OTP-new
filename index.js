@@ -31,7 +31,6 @@ Mongoose.connect("mongodb+srv://aatish:aatish@cluster0.euclaxo.mongodb.net/otpdb
 
 const OtpModel = require('./models/Otp');
 
-app.use(BodyParser.json());
 
 app.post("/getcurotp",async(req,res)=>{
   try {
